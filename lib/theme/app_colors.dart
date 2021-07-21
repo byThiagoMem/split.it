@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 abstract class AppColors {
   Color get backgroundPrimary;
   Color get backgroundSecundary;
+  Color get green;
   Color get title;
   Color get button;
   Color get border;
+  Color get negative;
 }
 
 class AppColorsDefault implements AppColors {
@@ -23,4 +25,10 @@ class AppColorsDefault implements AppColors {
 
   @override
   Color get border => Color(0xFFDCE0E5);
+
+  @override
+  Color get negative => Color(0xFFE83F5B);
+
+  @override
+  Color get green => Color(0xFF40B28C);
 }
