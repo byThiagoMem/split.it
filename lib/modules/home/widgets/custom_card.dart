@@ -1,24 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:splitit/modules/home/widgets/icon_dollar.dart';
+import 'package:splitit/modules/home/widgets/loading_widget.dart';
 import 'package:splitit/theme/app_theme.dart';
 
+enum IconType { positive, negative }
+
 class CustomCard extends StatelessWidget {
-  final String image;
-  final bool positive;
-  const CustomCard({Key? key, required this.image, required this.positive})
+  final double value;
+  final bool isLoading;
+  final IconDollarType type;
+  const CustomCard(
+      {Key? key,
+      required this.value,
+      required this.type,
+      this.isLoading = false})
       : super(key: key);
+
+  String get title => value >= 0 ? 'A receber' : 'A pagar';
+
+  TextStyle get textStyle => value >= 0
+      ? AppTheme.textStyles.infoCardSubtitleGreen
+      : AppTheme.textStyles.infoCardSubtitleRed;
 
   @override
   Widget build(BuildContext context) {
+    double sizeWidth = MediaQuery.of(context).size.width;
     return LayoutBuilder(
       builder: (context, constraints) {
         return Padding(
-          padding: EdgeInsets.only(top: constraints.maxHeight * .05),
+          padding: EdgeInsets.only(
+            top: constraints.maxHeight * .05,
+          ),
           child: Container(
             height: constraints.maxHeight * .79,
-            width: 170,
+            width: sizeWidth * 0.42,
             decoration: BoxDecoration(
-              color: AppTheme.colors.backgroundPrimary,
+              color: AppTheme.colors.white,
               borderRadius: BorderRadius.circular(10.0),
               border: Border.all(
                 width: 1,
@@ -31,40 +48,22 @@ class CustomCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 48,
-                    width: 48,
-                    decoration: BoxDecoration(
-                      color: positive
-                          ? AppTheme.colors.backgroundSecundary.withOpacity(.16)
-                          : AppTheme.colors.negative.withOpacity(.16),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Image.asset(image),
-                  ),
+                  IconDollar(type: type),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        positive ? 'A receber' : 'A pagar',
-                        style: AppTheme.textStyles.description,
+                        title,
+                        style: AppTheme.textStyles.infoCardTitle,
                       ),
-                      Text(
-                        positive ? 'R\$ 124,00' : 'R\$ 48,00',
-                        style: positive
-                            ? GoogleFonts.montserrat(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w600,
-                                color: AppTheme.colors.green,
-                                height: 1.5,
-                              )
-                            : GoogleFonts.montserrat(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w600,
-                                color: AppTheme.colors.negative,
-                                height: 1.5,
-                              ),
-                      ),
+                      if (isLoading) ...[
+                        LoadingWidget(size: Size(98, 24))
+                      ] else ...[
+                        Text(
+                          'R\$ ${value.toStringAsFixed(2)}',
+                          style: textStyle,
+                        ),
+                      ]
                     ],
                   ),
                 ],

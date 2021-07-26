@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.colors.backgroundPrimary,
+      backgroundColor: AppTheme.colors.white,
       body: LayoutBuilder(builder: (_, constraints) {
         return Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
