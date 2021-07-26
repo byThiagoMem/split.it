@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:559189537993:android:e110de2fae292b073d0918",
+        "mobilesdk_app_id": "1:559189537993:android:bea4e9800a4ac6f03d0918",
         "android_client_info": {
-          "package_name": "com.axample"
+          "package_name": "com.example.splitit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "559189537993-1s29e9jvveelu7f0avojegd0hnvrbb2q.apps.googleusercontent.com",
+          "client_id": "559189537993-a5fuvgk48ggnpnlann895b5pc4pi5j67.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.axample",
+            "package_name": "com.example.splitit",
             "certificate_hash": "2ab6ab3dbe0408f18f985bc04541f4ca478595a5"
           }
         },

@@ -11,8 +11,8 @@ class _SplashPageState extends State<SplashPage> {
   void initializeFirebase() async {
     try {
       await Firebase.initializeApp();
-      await Future.delayed(Duration(seconds: 3))
-          .whenComplete(() => Navigator.pushNamed(context, '/login'));
+      await Future.delayed(Duration(seconds: 3)).whenComplete(
+          () => Navigator.pushReplacementNamed(context, '/login'));
     } on Exception catch (_) {
       Navigator.pushNamed(context, '/error');
     }
