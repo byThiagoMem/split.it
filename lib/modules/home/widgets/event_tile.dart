@@ -76,7 +76,7 @@ class EventTile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'R\$ ${model.value!.toStringAsFixed(2)}',
+                            'R\$ ${model.value!.toStringAsFixed(2).replaceFirst('-', '').replaceAll('.', ',')}',
                             style: AppTheme.textStyles.eventTileMoney,
                           ),
                           SizedBox(height: 5),

@@ -60,7 +60,7 @@ class CustomCard extends StatelessWidget {
                         LoadingWidget(size: Size(98, 24))
                       ] else ...[
                         Text(
-                          'R\$ ${value.toStringAsFixed(2)}',
+                          'R\$ ${value.toStringAsFixed(2).replaceFirst('-', '').replaceAll('.', ',')}',
                           style: textStyle,
                         ),
                       ]
