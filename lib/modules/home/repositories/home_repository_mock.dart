@@ -17,11 +17,17 @@ class HomeRepositoryMock implements HomeRepository {
     await Future.delayed(Duration(seconds: 2));
     return [
       EventModel(
-          title: 'Churrasco', created: DateTime.now(), value: 32, people: 1),
+          title: 'Churrasco',
+          created: DateTime(2021, 3, 1),
+          value: 32,
+          people: 1),
       EventModel(
-          title: 'Aniversário', created: DateTime.now(), value: -15, people: 1),
+          title: 'Aniversário',
+          created: DateTime(2021, 3, 24),
+          value: -15,
+          people: 1),
       EventModel(
-          title: 'Almoço', created: DateTime.now(), value: 42, people: 1),
+          title: 'Almoço', created: DateTime(2021, 4, 7), value: 42, people: 1),
       EventModel(
           title: 'Jantar', created: DateTime.now(), value: -10, people: 1),
       EventModel(

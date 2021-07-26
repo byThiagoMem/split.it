@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:splitit/modules/home/widgets/icon_dollar.dart';
 import 'package:splitit/modules/home/widgets/loading_widget.dart';
 import 'package:splitit/shared/models/event_model.dart';
+import 'package:splitit/shared/utils/custom_date_format.dart';
 import 'package:splitit/theme/app_theme.dart';
 
 class EventTile extends StatelessWidget {
@@ -66,7 +67,9 @@ class EventTile extends StatelessWidget {
                       contentPadding: EdgeInsets.zero,
                       title: Text(model.title!,
                           style: AppTheme.textStyles.eventTileTitle),
-                      subtitle: Text(model.created!.toString().split(' ')[0],
+                      subtitle: Text(
+                          ' ${model.created!.day < 10 ? 0 : ''}${model.created!.day} ${CustomDateFormat.customFormatDate(month: model.created!.month)}'
+                              .toString(),
                           style: AppTheme.textStyles.eventTilesubtitle),
                       trailing: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
