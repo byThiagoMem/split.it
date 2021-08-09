@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splitit/modules/home/widgets/icon_dollar.dart';
 import 'package:splitit/modules/home/widgets/loading_widget.dart';
+import 'package:splitit/shared/utils/formatters.dart';
 import 'package:splitit/theme/app_theme.dart';
 
 enum IconType { positive, negative }
@@ -60,7 +61,7 @@ class CustomCard extends StatelessWidget {
                         LoadingWidget(size: Size(98, 24))
                       ] else ...[
                         Text(
-                          'R\$ ${value.toStringAsFixed(2).replaceFirst('-', '').replaceAll('.', ',')}',
+                          '${value.reais().replaceFirst('-', '')}',
                           style: textStyle,
                         ),
                       ]

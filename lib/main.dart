@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:splitit/app_widget.dart';
 
 void main() {
-  runApp(AppWidget());
+  initializeDateFormatting('pt_BR').then((value) => runApp(AppWidget()));
 }
