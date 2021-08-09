@@ -5,20 +5,34 @@ class StepperNextButton extends StatelessWidget {
   final String label;
   final VoidCallback? onTap;
   final bool enable;
+  final bool colored;
+
   const StepperNextButton(
-      {Key? key, required this.label, required this.onTap, this.enable = true})
+      {Key? key,
+      required this.label,
+      required this.onTap,
+      this.enable = true,
+      this.colored = false})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: TextButton(
-        onPressed: enable ? onTap : null,
-        child: Text(
-          label,
-          style: enable
-              ? AppTheme.textStyles.stepperNextButton
-              : AppTheme.textStyles.stepperNextButtonDisabled,
+      child: InkWell(
+        onTap: enable ? onTap : null,
+        child: Container(
+          height: 60,
+          child: Center(
+            child: Text(
+              label,
+              style: enable
+                  ? colored
+                      ? AppTheme.textStyles.stepperNextButton
+                          .copyWith(color: AppTheme.colors.iconAdd)
+                      : AppTheme.textStyles.stepperNextButton
+                  : AppTheme.textStyles.stepperNextButtonDisabled,
+            ),
+          ),
         ),
       ),
     );

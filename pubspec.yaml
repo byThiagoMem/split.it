@@ -18,10 +18,20 @@ dependencies:
   google_sign_in: ^5.0.5
   mocktail: ^0.1.4
   shimmer: ^2.0.0
+  mobx: ^2.0.3
+  flutter_mobx: ^2.0.1
+  mobx_codegen: ^2.0.2
+  cloud_firestore: ^2.2.1
+  flutter_masked_text2: ^0.9.1
+  bot_toast: ^4.0.1
+  intl: ^0.17.0
+  flutter_launcher_icons: "^0.9.1"
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.1.0
 
 flutter:
 
@@ -29,4 +39,9 @@ flutter:
 
   assets:
     - assets/images/
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/ic_launcher.png"
   

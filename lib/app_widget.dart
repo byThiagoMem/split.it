@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:splitit/modules/create_split/create_split_page.dart';
@@ -15,6 +16,8 @@ class AppWidget extends StatelessWidget {
         statusBarIconBrightness: Brightness.dark,
         systemNavigationBarIconBrightness: Brightness.light));
     return MaterialApp(
+      builder: BotToastInit(), //1. call BotToastInit
+      navigatorObservers: [BotToastNavigatorObserver()],
       title: "Split.it",
       debugShowCheckedModeBanner: false,
       home: SplashPage(),
